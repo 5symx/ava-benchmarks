@@ -222,7 +222,7 @@ int BFSGraph(int argc, char** argv)
     probe_time_start(&ts_total);
     probe_time_start(&ts_init);
 
-	res = cuda_driver_api_init(&ctx, &mod, "./bfs.cubin");
+	res = cuda_driver_api_init(&ctx, &mod, "./bfs.ptx");
 	if (res != CUDA_SUCCESS) {
 		printf("cuda_driver_api_init failed: res = %u\n", res);
 		return -1;

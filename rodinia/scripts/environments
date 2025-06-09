@@ -1,6 +1,6 @@
 if [ -z "$DATA_DIR" ]
 then
-    export DATA_DIR=/path/to/rodinia/data
+    export DATA_DIR=/home/ymx/ava/third_party/ava-benchmarks/rodinia/my_dataset/rodinia-data
 fi
 if [ -z "$AVA_CHANNEL" ]
 then
@@ -10,6 +10,8 @@ if [ -z "$AVA_WPOOL" ]
 then
     export AVA_WPOOL=TRUE
 fi
+
+export AVA_ROOT=/home/ymx/ava
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 NW_DIR=$AVA_ROOT

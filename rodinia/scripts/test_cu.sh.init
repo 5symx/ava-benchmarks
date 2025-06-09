@@ -2,10 +2,9 @@
 
 source environments
 
-bm="bfs"
-#backprop bfs    gaussian heartwall  hotspot  \
-#lud      needle nn       pathfinder srad_v1  \
-#    srad_v2"
+bm="backprop bfs    gaussian heartwall  hotspot  \
+    lud      needle nn       pathfinder srad_v1  \
+    srad_v2"
 
 CU_DIR=$DIR/../cuda
 OUTDIR=$DIR/cu_results_${AVA_CHANNEL}_${AVA_WPOOL}
