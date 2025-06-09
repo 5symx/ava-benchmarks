@@ -11,7 +11,7 @@ then
     export AVA_WPOOL=TRUE
 fi
 
-export AVA_ROOT=/home/ymx/ava
+export AVA_ROOT=/home/ymx/ava/build
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 NW_DIR=$AVA_ROOT

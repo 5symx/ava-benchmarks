@@ -1,1 +1,1 @@
-./bfs ./graph65536.txt
+LD_LIBRARY_PATH=/home/ymx/ava/build/install/cudadrv/lib ./bfs ./graph65536.txt

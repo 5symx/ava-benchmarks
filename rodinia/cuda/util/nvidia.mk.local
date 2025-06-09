@@ -1,13 +1,13 @@
 AVA_ROOT=/home/ymx/ava
 CUDA_HOME=/usr/local/cuda
 
-AVA_LIB = $(AVA_ROOT)/build/install/cudadrv/lib
+AVA_LIB = $(AVA_ROOT)/build/cava/cudadrv_nw
 CUDA_LIB = $(CUDA_HOME)/lib64
 CUDA_INC = /usr/local/cuda/include
 
 LIB_NAME = cuda
 # comment out to run with native library on the host
-#LIB_NAME = guestlib
+LIB_NAME = guestlib
 
 CC = gcc
 ifeq ($(CC),)
@@ -25,7 +25,8 @@ NVCCFLAGS += -ptx
 
 CFLAGS += -O3 -I$(CUDA_TOP_DIR)/util \
         -I$(CUDA_INC) \
-        -L$(CUDA_LIB) -lcudart  -L$(AVA_LIB) \
+        -L$(CUDA_LIB) -lcuda -lcudart  -L$(AVA_LIB) \
+        -Wl,-rpath,$(AVA_LIB) \
         -l$(LIB_NAME) \
         -Wall -Wno-unused-result
 
