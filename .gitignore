@@ -1,1 +1,9 @@
+# dataset
 rodinia/my_dataset/
+
+# cuda 
+rodinia/scripts/test_cu.sh.init
+rodinia/scripts/test_cudart.sh.init
+
+rodinia/cudart/util/make.config.bak
+rodinia/cuda/util/nvidia.mk.bak

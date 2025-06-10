@@ -2,7 +2,14 @@
 
 if [ -z "$DATA_DIR" ]
 then
-    export DATA_DIR=/project/gpu-rodinia/data
+    export DATA_DIR=/home/ymx/ava/third_party/ava-benchmarks/rodinia/my_dataset/rodinia-data/
 fi
 
-./bfs.out ${DATA_DIR}/bfs/graph65536.txt
+# Check if a custom library path is provided
+LIB_PATH=${1:-/home/ymx/ava/build/install/cudart/lib}
+#LIB_PATH=${1:-/usr/local/cuda/lib64/}
+
+echo "Using LD_LIBRARY_PATH: $LIB_PATH"
+
+# Set LD_LIBRARY_PATH and run the program
+LD_LIBRARY_PATH=$LIB_PATH /home/ymx/ava/third_party/ava-benchmarks/rodinia/cudart/bfs/bfs.out ${DATA_DIR}/bfs/graph65536.txt

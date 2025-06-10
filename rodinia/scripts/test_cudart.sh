@@ -2,9 +2,10 @@
 
 source environments
 
-bm="backprop   bfs      b+tree dwt2d gaussian hotspot \
-    lavaMD     lud     myocyte nn    nw       particlefilter \
-    pathfinder srad_v1 srad_v2 streamcluster"
+bm="bfs"
+#bm="backprop   bfs      b+tree dwt2d gaussian hotspot \
+#    lavaMD     lud     myocyte nn    nw       particlefilter \
+#    pathfinder srad_v1 srad_v2 streamcluster"
 
 CUDART_DIR=$DIR/../cudart
 OUTDIR=$DIR/cudart_results_${AVA_CHANNEL}_${AVA_WPOOL}
@@ -26,6 +27,7 @@ for b in $bm; do
 
     cd $CUDART_DIR/$b
     echo "$(date) # compiling $b"
+    echo $PWD
     make clean &>/dev/null ; make &>/dev/null
 
     # warm up

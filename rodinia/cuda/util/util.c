@@ -18,6 +18,13 @@ CUresult cuda_driver_api_init(CUcontext *pctx, CUmodule *pmod, const char *f)
 		printf("cuInit failed: res = %lu\n", (unsigned long)res);
 		return res;
 	}
+	int driverVersion = 0;
+	res = cuDriverGetVersion(&driverVersion);
+	if (res != CUDA_SUCCESS){
+		printf("cuDriverGetVersion: failed");
+		return res;
+	}
+	printf("CUDA Driver Version: %d\n", driverVersion );
 
 	res = cuDeviceGet(&dev, 0);
 	if (res != CUDA_SUCCESS) {
@@ -34,6 +41,7 @@ CUresult cuda_driver_api_init(CUcontext *pctx, CUmodule *pmod, const char *f)
 	res = cuModuleLoad(pmod, f);
 	if (res != CUDA_SUCCESS) {
 		printf("cuModuleLoad() failed\n");
+		printf("cuModuleLoad() with error code %d\n", res);
 		cuCtxDestroy(*pctx);
 		return res;
 	}

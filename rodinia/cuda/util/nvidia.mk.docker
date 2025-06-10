@@ -1,9 +1,9 @@
 AVA_ROOT=/home/ymx/ava
-CUDA_HOME=/usr/local/cuda
+CUDA_HOME=/usr/local/cuda-10.1
 
-AVA_LIB = $(AVA_ROOT)/build/install/cudadrv/lib
+AVA_LIB = $(AVA_ROOT)/build/cava/cudadrv_nw
 CUDA_LIB = $(CUDA_HOME)/lib64
-CUDA_INC = /usr/local/cuda/include
+CUDA_INC = /usr/local/cuda-10.1/include
 
 LIB_NAME = cuda
 # comment out to run with native library on the host
@@ -13,7 +13,7 @@ CC = gcc
 ifeq ($(CC),)
 	CC = gcc
 endif
-NVCC = /usr/local/cuda/bin/nvcc
+NVCC = /usr/local/cuda-10.1/bin/nvcc
 
 # use sm_30 on listug for GTX 680
 NVCCFLAGS += -ptx
